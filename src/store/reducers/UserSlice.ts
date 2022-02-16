@@ -1,3 +1,4 @@
+import { createSlice } from "@reduxjs/toolkit";
 import { IUser } from "../../models/IUser";
 
 interface UserState {
@@ -11,3 +12,13 @@ const initialState: UserState = {
     isLoading: false,
     error: ''
 }
+
+export const userSlice = createSlice({
+    name: 'user',
+    initialState,
+    reducers: {
+
+    }
+})
+
+export default userSlice.reducer
