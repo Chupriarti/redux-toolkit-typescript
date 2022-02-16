@@ -1,9 +1,11 @@
+import axios from "axios";
+import { IUser } from "../../models/IUser";
 import { AppDispatch } from "../store";
 
 
-export const fetchUser = () => (dispatch: AppDispatch) => {
+export const fetchUser = () => async (dispatch: AppDispatch) => {
     try {
-
+        const response = await axios.get<IUser[]>('https://jsonplaceholder.typicode.com/users')
     } catch (e) {
 
     }
