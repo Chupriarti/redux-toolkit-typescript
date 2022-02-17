@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IUser } from "../../models/IUser";
 
 interface UserState {
@@ -17,7 +17,15 @@ export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
+        userFetching(state) {
 
+        },
+        userFetchingSuccess(state) {
+
+        },
+        userFetchingError(state, action) {
+
+        }
     }
 })
 
