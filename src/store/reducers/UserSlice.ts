@@ -18,13 +18,16 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         userFetching(state) {
-
+            state.isLoading = true
         },
-        userFetchingSuccess(state) {
-
+        userFetchingSuccess(state, action: PayloadAction<IUser[]>) {
+            state.isLoading = false
+            state.error = ''
+            state.users = action.payload
         },
-        userFetchingError(state, action) {
-
+        userFetchingError(state, action: PayloadAction<string>) {
+            state.isLoading = false
+            state.error = action.payload
         }
     }
 })
