@@ -5,7 +5,7 @@ import { fetchUsers } from './store/reducers/ActionCreator';
 
 function App() {
   const dispatch = useAppDisptach()
-  const {users} = useAppSelector(state => state.userReducer)
+  const { users, isLoading, error } = useAppSelector(state => state.userReducer)
 
   React.useEffect(() => {
     dispatch(fetchUsers())
@@ -13,6 +13,8 @@ function App() {
 
   return (
     <div>
+      {isLoading && <h1>Loading...</h1>}
+      {error && <h1>{error}</h1>}
       {JSON.stringify(users, null, 2)}
     </div>
   );
