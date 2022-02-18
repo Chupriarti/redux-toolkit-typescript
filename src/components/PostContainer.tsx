@@ -3,7 +3,9 @@ import { postAPI } from '../services/PostService'
 import PostItem from './PostItem'
 
 const PostContainer = () => {
-    const {data: posts, error, isLoading, refetch} = postAPI.useFetchAllPostsQuery(5)
+    const {data: posts, error, isLoading, refetch} = postAPI.useFetchAllPostsQuery(5, {
+        pollingInterval: 1000
+    })
     return (
         <div className="post__list">
             <button onClick={() => refetch()}>REFETCH</button>
