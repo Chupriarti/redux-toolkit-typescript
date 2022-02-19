@@ -6,10 +6,15 @@ import PostItem from './PostItem'
 const PostContainer = () => {
     const {data: posts, error, isLoading} = postAPI.useFetchAllPostsQuery(100)
     const [createPost, {}] = postAPI.useCreatePostMutation()
+    const [deletePost, {}] = postAPI.useDeletePostMutation()
     
     const handleCreate =  async () => {
         const title = prompt()
         await createPost({title, body: title} as IPost)
+    }
+
+    const handleRemove = (post: IPost) => {
+        deletePost(post)
     }
     
     return (
@@ -18,7 +23,7 @@ const PostContainer = () => {
             {isLoading && <h1>Loading...</h1>}
             {error && <h1>Error occurred during loading</h1>}
             {posts && posts.map(post => 
-                <PostItem key={post.id} post={post} />
+                <PostItem remove={handleRemove} key={post.id} post={post} />
             )}
         </div>
     )
