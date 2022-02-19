@@ -1,0 +1,16 @@
+{
+    "posts": [
+        {"id": 1, "title": "json-server 1", "body": "post 1"},
+        {"id": 2, "title": "json-server 2", "body": "post 2"},
+        {"id": 3, "title": "json-server 3", "body": "post 3"},
+        {"id": 4, "title": "json-server 4", "body": "post 4"},
+        {"id": 5, "title": "json-server 5", "body": "post 5"},
+        {"id": 6, "title": "json-server 6", "body": "post 6"},
+        {"id": 7, "title": "json-server 7", "body": "post 7"},
+        {"id": 8, "title": "json-server 8", "body": "post 8"}
+    ],
+    "comments": [
+        {"id": 1, "body": "some comment", "postId": "1"}
+    ],
+    "profile": {"name": "admin"}
+}
