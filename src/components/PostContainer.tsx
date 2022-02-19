@@ -7,6 +7,7 @@ const PostContainer = () => {
     const {data: posts, error, isLoading} = postAPI.useFetchAllPostsQuery(100)
     const [createPost, {}] = postAPI.useCreatePostMutation()
     const [deletePost, {}] = postAPI.useDeletePostMutation()
+    const [updatePost, {}] = postAPI.useUpdatePostMutation()
     
     const handleCreate =  async () => {
         const title = prompt()
@@ -16,6 +17,10 @@ const PostContainer = () => {
     const handleRemove = (post: IPost) => {
         deletePost(post)
     }
+
+    const handleUpdate = (post: IPost) => {
+        updatePost(post)
+    }
     
     return (
         <div className="post__list">
@@ -23,7 +28,7 @@ const PostContainer = () => {
             {isLoading && <h1>Loading...</h1>}
             {error && <h1>Error occurred during loading</h1>}
             {posts && posts.map(post => 
-                <PostItem remove={handleRemove} key={post.id} post={post} />
+                <PostItem update={handleUpdate} remove={handleRemove} key={post.id} post={post} />
             )}
         </div>
     )
